@@ -17,7 +17,7 @@ This was done as a group of two.
 
 | Name | Roll number | Role |
 |------|-------------|------|
-| Viraja | 2410110232 | Ranking engine: inverted index and VSM (Parts A and B) |
+| Palleti Viraja | 2410110232 | Ranking engine: inverted index and VSM (Parts A and B) |
 | Rishit Kamboj | 2410110598 | Positional engine: positional index, phrase and proximity search (Part C + Novelty) |
 
 The command line interface (Part D), the testing battery (Part E) were finished together after both branches were merged.
