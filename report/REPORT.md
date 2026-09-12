@@ -9,8 +9,8 @@ search.
 Team (group of two):
 
 - Viraja (Roll 2410110xxx), ranking engine: inverted index and VSM (Parts A and B).
-- Rishit Kamboj (Roll 2410110598), positional engine: positional index, phrase and proximity (Part C).
-- Part D (CLI), Part E (testing) and the novelty were done together after the merge.
+- Rishit Kamboj (Roll 2410110598), positional engine and novelty: positional index, phrase and proximity (Part C) plus the smart search (section 8).
+- Part D (CLI) and Part E (testing) were done together after the merge.
 
 ## 1. How to run
 
@@ -37,10 +37,10 @@ python tests/test_smart_search.py      # novelty tests (21 assertions)
 | `src/vsm.py` | B, lnc.ltc cosine ranking | Viraja |
 | `src/positional_index.py` | C, `{term:{df,postings{doc:[pos]}}}` | Rishit |
 | `src/phrase_search.py` | C, exact phrase and ordered `WITHIN/k` | Rishit |
-| `src/smart_search.py` | Novelty, proximity-boosted ranking (VSM + positional) | joint |
+| `src/smart_search.py` | Novelty, proximity-boosted ranking (VSM + positional) | Rishit |
 | `src/app.py` | D, CLI with all four modes | joint |
 | `scripts/dump_*_index.py`, `scripts/run_all_queries.py`, `scripts/evaluate.py` | A/C/E deliverables | joint |
-| `tests/test_vsm.py`, `tests/test_positional.py`, `tests/test_smart_search.py` | E | Viraja / Rishit / joint |
+| `tests/test_vsm.py`, `tests/test_positional.py`, `tests/test_smart_search.py` | E | Viraja / Rishit / Rishit |
 
 ## 3. Part A: Pre-processing
 
@@ -153,9 +153,9 @@ assembly"), with no new index and no heavy machinery:
   lecture's `net-score(q,d) = cosine(q,d) + other signals`:
 
 ```
-net(q,d) = cosine_lnc_ltc(q,d)            (relevance,   Viraja's VSM)
-         + 0.50 * [exact phrase in d]     (arrangement, Rishit's positions)
-         + 0.30 * (1 / smallest_window)   (proximity,   Rishit's positions)
+net(q,d) = cosine_lnc_ltc(q,d)            (relevance:   the VSM cosine)
+         + 0.50 * [exact phrase in d]     (arrangement: the positional index)
+         + 0.30 * (1 / smallest_window)   (proximity:   the positional index)
 ```
 
 Why it is a real improvement (numbers from `data/results.txt`, section F):
