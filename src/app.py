@@ -51,7 +51,7 @@ def do_free_text(query, index, docs):
     print(f"\n  query terms after preprocessing: {terms}")
     hits = rank(query, index, docs, top_k=10)
     if not hits:
-        print("  No rankable results — every query term is out-of-vocabulary or")
+        print("  No rankable results: every query term is out-of-vocabulary or")
         print("  occurs in all documents (idf 0). Try mode 2/3 for such phrases.")
         return
     print(f"  Top {len(hits)} results (lnc.ltc cosine):\n")
@@ -169,7 +169,7 @@ def main():
             if q:
                 do_smart_search(q, inv_index, pos_index, docs)
         else:
-            print("  Invalid choice — pick 0, 1, 2, 3 or 4.")
+            print("  Invalid choice. Pick 0, 1, 2, 3 or 4.")
 
     print("\nGoodbye.")
 
