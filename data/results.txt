@@ -1,0 +1,300 @@
+======================================================================
+PART E - QUERY BATTERY  (clothing search engine, N=100)
+======================================================================
+
+[A] TEN FREE-TEXT QUERIES  (VSM lnc.ltc, top-10)
+
+QUERY: 'cotton shirt'   ->  10 result(s)
+    1. D001  0.2731  T-Shirt    Men's Cotton Crew Neck T-Shirt - Black
+    2. D041  0.2731  T-Shirt    Men's Cotton Crew Neck T-Shirt - Maroon
+    3. D061  0.2731  T-Shirt    Men's Cotton Crew Neck T-Shirt - White
+    4. D081  0.2703  T-Shirt    Men's Cotton Crew Neck T-Shirt - Mustard
+    5. D022  0.2701  Shirt      Men's Checked Cotton Shirt - White
+    6. D082  0.2701  Shirt      Men's Checked Cotton Shirt - Blue
+    7. D042  0.2683  Shirt      Men's Checked Cotton Shirt - Maroon
+    8. D002  0.2654  Shirt      Men's Checked Cotton Shirt - Black
+    9. D062  0.2654  Shirt      Men's Checked Cotton Shirt - Olive
+   10. D021  0.2643  T-Shirt    Men's Cotton Crew Neck T-Shirt - Sky Blue
+
+QUERY: 'black t-shirt'   ->  10 result(s)
+    1. D072  0.3103  Shirt      Women's Striped Casual Shirt - Black
+    2. D071  0.3085  T-Shirt    Men's Oversized Graphic T-Shirt - Black
+    3. D002  0.3052  Shirt      Men's Checked Cotton Shirt - Black
+    4. D001  0.3046  T-Shirt    Men's Cotton Crew Neck T-Shirt - Black
+    5. D058  0.1610  Jacket     Women's Quilted Winter Jacket - Black
+    6. D036  0.1608  Dress      Women's Casual Fit Dress - Black
+    7. D010  0.1595  Sweatshirt Women's Fleece Sweatshirt - Black
+    8. D070  0.1595  Sweatshirt Women's Fleece Sweatshirt - Black
+    9. D037  0.1593  Hoodie     Unisex Fleece Pullover Hoodie - Black
+   10. D097  0.1593  Hoodie     Unisex Fleece Pullover Hoodie - Black
+
+QUERY: 'denim jeans'   ->  10 result(s)
+    1. D023  0.3037  Jeans      Men's Regular Fit Denim Jeans - Grey
+    2. D083  0.3037  Jeans      Men's Regular Fit Denim Jeans - Grey
+    3. D043  0.3017  Jeans      Men's Regular Fit Denim Jeans - Grey
+    4. D003  0.2965  Jeans      Men's Regular Fit Denim Jeans - Grey
+    5. D063  0.2965  Jeans      Men's Regular Fit Denim Jeans - Grey
+    6. D053  0.2566  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    7. D013  0.2563  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    8. D073  0.2563  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    9. D033  0.2519  Jeans      Men's Slim Fit Stretch Jeans - Grey
+   10. D093  0.2519  Jeans      Men's Slim Fit Stretch Jeans - Grey
+
+QUERY: 'printed saree'   ->  10 result(s)
+    1. D005  0.3047  Saree      Women's Printed Daily Wear Saree - Blue
+    2. D025  0.3047  Saree      Women's Printed Daily Wear Saree - Maroon
+    3. D065  0.3047  Saree      Women's Printed Daily Wear Saree - Green
+    4. D085  0.3047  Saree      Women's Printed Daily Wear Saree - Red
+    5. D045  0.3014  Saree      Women's Printed Daily Wear Saree - Purple
+    6. D035  0.2653  Saree      Women's Cotton Handloom Saree - Yellow
+    7. D055  0.2653  Saree      Women's Cotton Handloom Saree - Pink
+    8. D095  0.2653  Saree      Women's Cotton Handloom Saree - Maroon
+    9. D015  0.2624  Saree      Women's Cotton Handloom Saree - Red
+   10. D075  0.2624  Saree      Women's Cotton Handloom Saree - Blue
+
+QUERY: 'linen kurta'   ->  10 result(s)
+    1. D004  0.2620  Kurta      Men's Regular Fit Kurta - Pink
+    2. D064  0.2620  Kurta      Men's Regular Fit Kurta - White
+    3. D024  0.2597  Kurta      Men's Regular Fit Kurta - Teal
+    4. D084  0.2597  Kurta      Men's Regular Fit Kurta - Beige
+    5. D044  0.2518  Kurta      Men's Regular Fit Kurta - Navy Blue
+    6. D034  0.1545  Kurta      Women's Printed Straight Kurta - Maroon
+    7. D094  0.1545  Kurta      Women's Printed Straight Kurta - Teal
+    8. D054  0.1531  Kurta      Women's Printed Straight Kurta - Mustard
+    9. D014  0.1520  Kurta      Women's Printed Straight Kurta - Beige
+   10. D074  0.1520  Kurta      Women's Printed Straight Kurta - Pink
+
+QUERY: 'winter jacket'   ->  10 result(s)
+    1. D058  0.3122  Jacket     Women's Quilted Winter Jacket - Black
+    2. D018  0.3101  Jacket     Women's Quilted Winter Jacket - Beige
+    3. D078  0.3101  Jacket     Women's Quilted Winter Jacket - Beige
+    4. D038  0.3066  Jacket     Women's Quilted Winter Jacket - Olive
+    5. D098  0.3066  Jacket     Women's Quilted Winter Jacket - Olive
+    6. D028  0.2677  Jacket     Women's Casual Puffer Jacket - Black
+    7. D088  0.2677  Jacket     Women's Casual Puffer Jacket - Black
+    8. D048  0.2659  Jacket     Women's Casual Puffer Jacket - Beige
+    9. D008  0.2629  Jacket     Women's Casual Puffer Jacket - Olive
+   10. D068  0.2629  Jacket     Women's Casual Puffer Jacket - Olive
+
+QUERY: 'high waist leggings'   ->  10 result(s)
+    1. D029  0.3745  Leggings   Women's High Waist Stretch Leggings - Grey
+    2. D049  0.3745  Leggings   Women's High Waist Stretch Leggings - Black
+    3. D089  0.3745  Leggings   Women's High Waist Stretch Leggings - Grey
+    4. D009  0.3623  Leggings   Women's High Waist Stretch Leggings - Olive Green
+    5. D069  0.3623  Leggings   Women's High Waist Stretch Leggings - Olive Green
+    6. D019  0.2943  Leggings   Women's Printed Active Leggings - Black
+    7. D059  0.2943  Leggings   Women's Printed Active Leggings - Grey
+    8. D079  0.2943  Leggings   Women's Printed Active Leggings - Black
+    9. D039  0.2848  Leggings   Women's Printed Active Leggings - Olive Green
+   10. D099  0.2848  Leggings   Women's Printed Active Leggings - Olive Green
+
+QUERY: 'fleece hoodie'   ->  10 result(s)
+    1. D037  0.3123  Hoodie     Unisex Fleece Pullover Hoodie - Black
+    2. D097  0.3123  Hoodie     Unisex Fleece Pullover Hoodie - Black
+    3. D057  0.3089  Hoodie     Unisex Fleece Pullover Hoodie - Wine
+    4. D017  0.3049  Hoodie     Unisex Fleece Pullover Hoodie - Navy Blue
+    5. D077  0.3049  Hoodie     Unisex Fleece Pullover Hoodie - Navy Blue
+    6. D007  0.2906  Hoodie     Women's Oversized Fleece Hoodie - Black
+    7. D067  0.2906  Hoodie     Women's Oversized Fleece Hoodie - Black
+    8. D027  0.2875  Hoodie     Women's Oversized Fleece Hoodie - Wine
+    9. D087  0.2875  Hoodie     Women's Oversized Fleece Hoodie - Wine
+   10. D047  0.2839  Hoodie     Women's Oversized Fleece Hoodie - Navy Blue
+
+QUERY: 'slim fit'   ->  10 result(s)
+    1. D053  0.2462  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    2. D013  0.2459  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    3. D073  0.2459  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    4. D033  0.2417  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    5. D093  0.2417  Jeans      Men's Slim Fit Stretch Jeans - Grey
+    6. D052  0.1959  Shirt      Women's Striped Casual Shirt - Beige
+    7. D022  0.1948  Shirt      Men's Checked Cotton Shirt - White
+    8. D082  0.1948  Shirt      Men's Checked Cotton Shirt - Blue
+    9. D012  0.1945  Shirt      Women's Striped Casual Shirt - Blue
+   10. D072  0.1945  Shirt      Women's Striped Casual Shirt - Black
+
+QUERY: 'navy blue dress'   ->  10 result(s)
+    1. D096  0.3765  Dress      Women's Casual Fit Dress - Navy Blue
+    2. D026  0.3647  Dress      Women's Solid Midi Dress - Navy Blue
+    3. D017  0.2397  Hoodie     Unisex Fleece Pullover Hoodie - Navy Blue
+    4. D077  0.2397  Hoodie     Unisex Fleece Pullover Hoodie - Navy Blue
+    5. D050  0.2367  Sweatshirt Women's Fleece Sweatshirt - Navy Blue
+    6. D047  0.2359  Hoodie     Women's Oversized Fleece Hoodie - Navy Blue
+    7. D044  0.2350  Kurta      Men's Regular Fit Kurta - Navy Blue
+    8. D020  0.2338  Sweatshirt Men's Regular Fit Sweatshirt - Navy Blue
+    9. D080  0.2338  Sweatshirt Men's Regular Fit Sweatshirt - Navy Blue
+   10. D051  0.2335  T-Shirt    Men's Oversized Graphic T-Shirt - Navy Blue
+
+
+----------------------------------------------------------------------
+[B] FIVE EXACT PHRASE QUERIES  (positional index)
+
+PHRASE: 'cotton shirt'   ->  5 doc(s): ['D002', 'D022', 'D042', 'D062', 'D082']
+      D002  start_pos=[3, 9]  Men's Checked Cotton Shirt - Black
+      D022  start_pos=[3, 9]  Men's Checked Cotton Shirt - White
+      D042  start_pos=[3, 9]  Men's Checked Cotton Shirt - Maroon
+      D062  start_pos=[3, 9]  Men's Checked Cotton Shirt - Olive
+      D082  start_pos=[3, 9]  Men's Checked Cotton Shirt - Blue
+
+PHRASE: 'stretch denim'   ->  7 doc(s): ['D003', 'D013', 'D033', 'D043', 'D063', 'D073', 'D093']
+      D003  start_pos=[17]  Men's Regular Fit Denim Jeans - Grey
+      D013  start_pos=[16]  Men's Slim Fit Stretch Jeans - Grey
+      D033  start_pos=[17]  Men's Slim Fit Stretch Jeans - Grey
+      D043  start_pos=[16]  Men's Regular Fit Denim Jeans - Grey
+      D063  start_pos=[17]  Men's Regular Fit Denim Jeans - Grey
+      D073  start_pos=[16]  Men's Slim Fit Stretch Jeans - Grey
+      D093  start_pos=[17]  Men's Slim Fit Stretch Jeans - Grey
+
+PHRASE: 'festive wear'   ->  10 doc(s): ['D005', 'D015', 'D025', 'D035', 'D045', 'D055', 'D065', 'D075', 'D085', 'D095']
+      D005  start_pos=[27]  Women's Printed Daily Wear Saree - Blue
+      D015  start_pos=[25]  Women's Cotton Handloom Saree - Red
+      D025  start_pos=[27]  Women's Printed Daily Wear Saree - Maroon
+      D035  start_pos=[25]  Women's Cotton Handloom Saree - Yellow
+      D045  start_pos=[27]  Women's Printed Daily Wear Saree - Purple
+      D055  start_pos=[25]  Women's Cotton Handloom Saree - Pink
+      D065  start_pos=[27]  Women's Printed Daily Wear Saree - Green
+      D075  start_pos=[25]  Women's Cotton Handloom Saree - Blue
+      D085  start_pos=[27]  Women's Printed Daily Wear Saree - Red
+      D095  start_pos=[25]  Women's Cotton Handloom Saree - Maroon
+
+PHRASE: 'winter wear'   ->  20 doc(s): ['D008', 'D010', 'D018', 'D020', 'D028', 'D030', 'D038', 'D040', 'D048', 'D050', 'D058', 'D060', 'D068', 'D070', 'D078', 'D080', 'D088', 'D090', 'D098', 'D100']
+      D008  start_pos=[27]  Women's Casual Puffer Jacket - Olive
+      D010  start_pos=[24]  Women's Fleece Sweatshirt - Black
+      D018  start_pos=[26]  Women's Quilted Winter Jacket - Beige
+      D020  start_pos=[28]  Men's Regular Fit Sweatshirt - Navy Blue
+      D028  start_pos=[27]  Women's Casual Puffer Jacket - Black
+      D030  start_pos=[24]  Women's Fleece Sweatshirt - Maroon
+      D038  start_pos=[26]  Women's Quilted Winter Jacket - Olive
+      D040  start_pos=[26]  Men's Regular Fit Sweatshirt - Black
+      D048  start_pos=[27]  Women's Casual Puffer Jacket - Beige
+      D050  start_pos=[26]  Women's Fleece Sweatshirt - Navy Blue
+      D058  start_pos=[26]  Women's Quilted Winter Jacket - Black
+      D060  start_pos=[26]  Men's Regular Fit Sweatshirt - Maroon
+      D068  start_pos=[27]  Women's Casual Puffer Jacket - Olive
+      D070  start_pos=[24]  Women's Fleece Sweatshirt - Black
+      D078  start_pos=[26]  Women's Quilted Winter Jacket - Beige
+      D080  start_pos=[28]  Men's Regular Fit Sweatshirt - Navy Blue
+      D088  start_pos=[27]  Women's Casual Puffer Jacket - Black
+      D090  start_pos=[24]  Women's Fleece Sweatshirt - Maroon
+      D098  start_pos=[26]  Women's Quilted Winter Jacket - Olive
+      D100  start_pos=[26]  Men's Regular Fit Sweatshirt - Black
+
+PHRASE: 'breathable fabric'   ->  20 doc(s): ['D001', 'D004', 'D011', 'D014', 'D021', 'D024', 'D031', 'D034', 'D041', 'D044', 'D051', 'D054', 'D061', 'D064', 'D071', 'D074', 'D081', 'D084', 'D091', 'D094']
+      D001  start_pos=[31]  Men's Cotton Crew Neck T-Shirt - Black
+      D004  start_pos=[26]  Men's Regular Fit Kurta - Pink
+      D011  start_pos=[29]  Men's Oversized Graphic T-Shirt - Mustard
+      D014  start_pos=[26]  Women's Printed Straight Kurta - Beige
+      D021  start_pos=[33]  Men's Cotton Crew Neck T-Shirt - Sky Blue
+      D024  start_pos=[26]  Men's Regular Fit Kurta - Teal
+      D031  start_pos=[31]  Men's Oversized Graphic T-Shirt - Olive Green
+      D034  start_pos=[26]  Women's Printed Straight Kurta - Maroon
+      D041  start_pos=[31]  Men's Cotton Crew Neck T-Shirt - Maroon
+      D044  start_pos=[28]  Men's Regular Fit Kurta - Navy Blue
+      D051  start_pos=[31]  Men's Oversized Graphic T-Shirt - Navy Blue
+      D054  start_pos=[26]  Women's Printed Straight Kurta - Mustard
+      D061  start_pos=[31]  Men's Cotton Crew Neck T-Shirt - White
+      D064  start_pos=[26]  Men's Regular Fit Kurta - White
+      D071  start_pos=[29]  Men's Oversized Graphic T-Shirt - Black
+      D074  start_pos=[26]  Women's Printed Straight Kurta - Pink
+      D081  start_pos=[31]  Men's Cotton Crew Neck T-Shirt - Mustard
+      D084  start_pos=[26]  Men's Regular Fit Kurta - Beige
+      D091  start_pos=[31]  Men's Oversized Graphic T-Shirt - Sky Blue
+      D094  start_pos=[26]  Women's Printed Straight Kurta - Teal
+
+
+----------------------------------------------------------------------
+[C] THREE PROXIMITY QUERIES WITH DIFFERENT k  (ordered WITHIN/k)
+
+PROXIMITY: cotton WITHIN/2 shirt   ->  5 doc(s): ['D002', 'D022', 'D042', 'D062', 'D082']
+      D002  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Black
+      D022  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - White
+      D042  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Maroon
+      D062  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Olive
+      D082  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Blue
+
+PROXIMITY: cotton WITHIN/4 shirt   ->  15 doc(s): ['D001', 'D002', 'D011', 'D021', 'D022', 'D031', 'D041', 'D042', 'D051', 'D061', 'D062', 'D071', 'D081', 'D082', 'D091']
+      D001  pairs=[(2, 6), (10, 14), (19, 22)]  Men's Cotton Crew Neck T-Shirt - Black
+      D002  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Black
+      D011  pairs=[(16, 20)]  Men's Oversized Graphic T-Shirt - Mustard
+      D021  pairs=[(2, 6), (11, 15), (21, 24)]  Men's Cotton Crew Neck T-Shirt - Sky Blue
+      D022  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - White
+      D031  pairs=[(18, 22)]  Men's Oversized Graphic T-Shirt - Olive Green
+      D041  pairs=[(2, 6), (10, 14), (19, 22)]  Men's Cotton Crew Neck T-Shirt - Maroon
+      D042  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Maroon
+      D051  pairs=[(18, 22)]  Men's Oversized Graphic T-Shirt - Navy Blue
+      D061  pairs=[(2, 6), (10, 14), (19, 22)]  Men's Cotton Crew Neck T-Shirt - White
+      D062  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Olive
+      D071  pairs=[(16, 20)]  Men's Oversized Graphic T-Shirt - Black
+      D081  pairs=[(2, 6), (10, 14), (19, 22)]  Men's Cotton Crew Neck T-Shirt - Mustard
+      D082  pairs=[(3, 4), (9, 10)]  Men's Checked Cotton Shirt - Blue
+      D091  pairs=[(18, 22)]  Men's Oversized Graphic T-Shirt - Sky Blue
+
+PROXIMITY: winter WITHIN/3 wear   ->  20 doc(s): ['D008', 'D010', 'D018', 'D020', 'D028', 'D030', 'D038', 'D040', 'D048', 'D050', 'D058', 'D060', 'D068', 'D070', 'D078', 'D080', 'D088', 'D090', 'D098', 'D100']
+      D008  pairs=[(27, 28)]  Women's Casual Puffer Jacket - Olive
+      D010  pairs=[(24, 25)]  Women's Fleece Sweatshirt - Black
+      D018  pairs=[(26, 27)]  Women's Quilted Winter Jacket - Beige
+      D020  pairs=[(28, 29)]  Men's Regular Fit Sweatshirt - Navy Blue
+      D028  pairs=[(27, 28)]  Women's Casual Puffer Jacket - Black
+      D030  pairs=[(24, 25)]  Women's Fleece Sweatshirt - Maroon
+      D038  pairs=[(26, 27)]  Women's Quilted Winter Jacket - Olive
+      D040  pairs=[(26, 27)]  Men's Regular Fit Sweatshirt - Black
+      D048  pairs=[(27, 28)]  Women's Casual Puffer Jacket - Beige
+      D050  pairs=[(26, 27)]  Women's Fleece Sweatshirt - Navy Blue
+      D058  pairs=[(26, 27)]  Women's Quilted Winter Jacket - Black
+      D060  pairs=[(26, 27)]  Men's Regular Fit Sweatshirt - Maroon
+      D068  pairs=[(27, 28)]  Women's Casual Puffer Jacket - Olive
+      D070  pairs=[(24, 25)]  Women's Fleece Sweatshirt - Black
+      D078  pairs=[(26, 27)]  Women's Quilted Winter Jacket - Beige
+      D080  pairs=[(28, 29)]  Men's Regular Fit Sweatshirt - Navy Blue
+      D088  pairs=[(27, 28)]  Women's Casual Puffer Jacket - Black
+      D090  pairs=[(24, 25)]  Women's Fleece Sweatshirt - Maroon
+      D098  pairs=[(26, 27)]  Women's Quilted Winter Jacket - Olive
+      D100  pairs=[(26, 27)]  Men's Regular Fit Sweatshirt - Black
+
+
+----------------------------------------------------------------------
+[D] OUT-OF-VOCABULARY QUERIES  (term not in the corpus)
+
+Free-text 'silk saree' ('silk' is OOV, so only 'saree' can rank):
+QUERY: 'silk saree'   ->  10 result(s)
+    1. D035  0.2197  Saree      Women's Cotton Handloom Saree - Yellow
+    2. D055  0.2197  Saree      Women's Cotton Handloom Saree - Pink
+    3. D095  0.2197  Saree      Women's Cotton Handloom Saree - Maroon
+    4. D005  0.2188  Saree      Women's Printed Daily Wear Saree - Blue
+    5. D025  0.2188  Saree      Women's Printed Daily Wear Saree - Maroon
+    6. D065  0.2188  Saree      Women's Printed Daily Wear Saree - Green
+    7. D085  0.2188  Saree      Women's Printed Daily Wear Saree - Red
+    8. D015  0.2173  Saree      Women's Cotton Handloom Saree - Red
+    9. D075  0.2173  Saree      Women's Cotton Handloom Saree - Blue
+   10. D045  0.2164  Saree      Women's Printed Daily Wear Saree - Purple
+
+Free-text 'cashmere sweater' (both terms OOV):
+QUERY: 'cashmere sweater'   ->  0 result(s)
+   (no rankable results: term(s) out-of-vocabulary or idf 0)
+
+Phrase 'leather jacket' ('leather' is OOV):
+PHRASE: 'leather jacket'   ->  0 doc(s): []
+
+======================================================================
+[E] TWO CASES WHERE POSITIONAL INFO CHANGES THE RESULT
+======================================================================
+
+CASE 1  -  'festive wear'
+   VSM free-text : 0 results  -> []
+   Phrase        : 10 docs     -> ['D005', 'D015', 'D025', 'D035', 'D045', 'D055', 'D065', 'D075', 'D085', 'D095']
+   WHY IT CHANGES: 'festive' and 'wear' both occur in ALL 100 documents
+   (idf = log10(100/100) = 0), so the VSM query vector is all zeros and
+   CANNOT rank anything -> 0 results.  The positional index instead pins
+   the exact adjacent phrase to the sarees that actually advertise
+   'festive wear'.  Positional finds the answer where VSM cannot.
+
+CASE 2  -  'cotton shirt'
+   VSM free-text (top-10): ['D001', 'D041', 'D061', 'D081', 'D022', 'D082', 'D042', 'D002', 'D062', 'D021']
+   Phrase                : 5 docs -> ['D002', 'D022', 'D042', 'D062', 'D082']
+   Proximity WITHIN/3    : 10 docs -> ['D001', 'D002', 'D021', 'D022', 'D041', 'D042', 'D061', 'D062', 'D081', 'D082']
+   WHY IT CHANGES: as a bag of words, VSM ranks any doc with 'cotton'
+   and/or 'shirt' highly - its top-10 includes 5 T-Shirts
+   (['D001', 'D041', 'D061', 'D081', 'D021']) whose words are NOT adjacent.  The exact phrase
+   drops every T-Shirt and keeps only the 5 'Checked Cotton Shirt' items
+   where 'cotton shirt' is truly consecutive.  Relaxing to WITHIN/3 lets
+   the T-Shirts back in ('cotton ... t shirt' within 3 positions), so the
+   result SET grows again - proximity k directly controls precision.
