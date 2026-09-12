@@ -194,7 +194,7 @@ of the ranking, where users look.
 
 ## 9. Screenshots
 
-Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DOC.pdf)**
+Application screenshots and query evidence are in **[`../SCREENSHOTS.pdf`](../SCREENSHOTS.pdf)**
 (captured from `python src/app.py` and the test runs):
 
 - **Page 1** — the menu; Mode 1 `cotton shirt` (full top-10 with docID/category/score);
@@ -213,5 +213,5 @@ Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DO
 - [x] Query results / comparison — `data/results.txt` (incl. novelty §F)
 - [x] Novelty — proximity-boosted Smart Search (`src/smart_search.py`, CLI mode 4, §8)
 - [x] Novelty evaluation — Precision@k, `data/evaluation.txt` (via `scripts/evaluate.py`)
-- [x] Screenshots of the application — `IR DOC.pdf` (see §9)
+- [x] Screenshots of the application — `SCREENSHOTS.pdf` (see §9)
 - [ ] ZIP of all files

@@ -3,5 +3,9 @@ __pycache__/
 .venv/
 venv/
 
-# Course PDFs (not part of the deliverable)
+# Course PDFs (not part of the deliverable); SCREENSHOTS.pdf is force-added
 *.pdf
+
+# macOS / build artifacts
+.DS_Store
+*.zip
