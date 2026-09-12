@@ -7,7 +7,7 @@ Vector Space Model, and a **positional index** supporting exact-phrase and
 ordered-proximity search.
 
 **Team (group of two):**
-- **Person A — ranking engine:** inverted index + VSM (Parts A, B) — *Vraja*
+- **Person A — ranking engine:** inverted index + VSM (Parts A, B) — *Viraja*
 - **Person B — positional engine:** positional index + phrase/proximity (Part C) — *Rishit*
 - Part D (CLI) and Part E (testing/report) were done jointly after merge.
 
@@ -138,14 +138,16 @@ positional retrieval ranks on term *arrangement*.
 
 ## 8. Screenshots
 
-Run `python src/app.py` and capture:
+Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DOC.pdf)**
+(captured from `python src/app.py` and the test runs):
 
-- `screenshots/mode1_free_text.png` — mode 1 on `cotton shirt` (top-10 with scores)
-- `screenshots/mode1_festive_wear.png` — mode 1 on `festive wear` (no rankable results)
-- `screenshots/mode2_phrase.png` — mode 2 on `cotton shirt` (5 docs, start positions shown)
-- `screenshots/mode3_proximity.png` — mode 3 on `cotton WITHIN/3 shirt` (position pairs shown)
-
-*(Place the images in `report/screenshots/` and they render above.)*
+- **Page 1** — the menu; Mode 1 `cotton shirt` (full top-10 with docID/category/score);
+  Mode 2 `cotton shirt` (5 checked shirts, start positions shown). *Comparison Case 2.*
+- **Page 2** — Mode 2 `high waist` (10 docs, start positions); Mode 3
+  `stretch WITHIN/5 denim` (7 docs, matching position pairs); Mode 1 vs Mode 2
+  `festive wear` (VSM "no rankable results" vs 10 sarees). *Comparison Case 1.*
+- **Page 3** — both test suites passing (`test_positional.py` 298 assertions,
+  `test_vsm.py` incl. the 0.8 lecture check).
 
 ## 9. Deliverables checklist
 
@@ -153,5 +155,5 @@ Run `python src/app.py` and capture:
 - [x] Inverted-index output — `data/inverted_index.txt` (via `scripts/dump_inverted_index.py`)
 - [x] Positional-index output — `data/positional_index.txt`
 - [x] Query results / comparison — `data/results.txt`
-- [ ] Screenshots — capture per §8
+- [x] Screenshots of the application — `IR DOC.pdf` (see §8)
 - [ ] ZIP of all files
