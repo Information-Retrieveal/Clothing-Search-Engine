@@ -13,7 +13,7 @@ Run from the repository root:
 
     python scripts/dump_inverted_index.py [output_path]
 
-Default output: ``inverted_index_dump.txt`` in the repository root.
+Default output: ``outputs/inverted_index.txt``.
 """
 
 import os
@@ -47,8 +47,9 @@ def dump_inverted_index(index, out_path):
 
 def main():
     out_path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(
-        _ROOT, "inverted_index_dump.txt"
+        _ROOT, "outputs", "inverted_index.txt"
     )
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
     docs = load_corpus(os.path.join(_ROOT, "corpus_100.txt"))
     index = build_inverted_index(docs)
     total_postings = dump_inverted_index(index, out_path)

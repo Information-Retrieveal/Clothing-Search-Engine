@@ -3,7 +3,7 @@ Part E - Testing battery + deliverable results log.  [Integration]
 ===================================================================
 
 Runs the mandatory Part E query set against the FULL system (VSM + positional)
-and writes a readable report to data/results.txt:
+and writes a readable report to outputs/results.txt:
 
     * 10 free-text queries          (top-10 ranked results each)
     * 5  exact phrase queries
@@ -30,7 +30,7 @@ from positional_index import build_positional_index       # noqa: E402
 from phrase_search import phrase_search, proximity_search  # noqa: E402
 from smart_search import smart_search                       # noqa: E402
 
-OUT_PATH = os.path.join(_ROOT, "data", "results.txt")
+OUT_PATH = os.path.join(_ROOT, "outputs", "results.txt")
 
 FREE_TEXT = [
     "cotton shirt", "black t-shirt", "denim jeans", "printed saree",

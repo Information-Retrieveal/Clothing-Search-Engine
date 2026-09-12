@@ -11,7 +11,7 @@ names a garment type, and a retrieved document is "relevant" iff its CATEGORY
 matches. (This is a reasonable, fully reproducible proxy for relevance - no
 hand-labelling, no hard-coded document IDs.)
 
-Run from the repo root:  python scripts/evaluate.py   ->  data/evaluation.txt
+Run from the repo root:  python scripts/evaluate.py   ->  outputs/evaluation.txt
 """
 
 import os
@@ -26,7 +26,7 @@ from vsm import rank                                   # noqa: E402
 from positional_index import build_positional_index   # noqa: E402
 from smart_search import smart_search                  # noqa: E402
 
-OUT_PATH = os.path.join(_ROOT, "data", "evaluation.txt")
+OUT_PATH = os.path.join(_ROOT, "outputs", "evaluation.txt")
 
 # query -> the product category that counts as relevant.
 QUERIES = [

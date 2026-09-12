@@ -72,13 +72,13 @@ src/
 scripts/
   dump_inverted_index.py    Writes the inverted-index deliverable
   dump_positional_index.py  Writes the positional-index deliverable
-  run_all_queries.py        Runs the full query battery into data/results.txt
+  run_all_queries.py        Runs the full query battery into outputs/results.txt
   evaluate.py               Precision@k comparison, VSM vs smart search
 tests/
   test_vsm.py               Ranking tests (includes the lecture 0.8 cosine check)
   test_positional.py        Phrase and proximity tests (structural, no fixed ids)
   test_smart_search.py      Novelty tests (structural)
-data/                       Generated index dumps and result logs
+outputs/                       Generated index dumps and result logs
 report/REPORT.md            Full write-up: methodology, formulas, results
 SCREENSHOTS.pdf             Application screenshots and query evidence
 ```
@@ -86,10 +86,10 @@ SCREENSHOTS.pdf             Application screenshots and query evidence
 ## Regenerate the deliverables
 
 ```bash
-python scripts/dump_inverted_index.py    # data/inverted_index.txt
-python scripts/dump_positional_index.py  # data/positional_index.txt
-python scripts/run_all_queries.py        # data/results.txt
-python scripts/evaluate.py               # data/evaluation.txt
+python scripts/dump_inverted_index.py    # outputs/inverted_index.txt
+python scripts/dump_positional_index.py  # outputs/positional_index.txt
+python scripts/run_all_queries.py        # outputs/results.txt
+python scripts/evaluate.py               # outputs/evaluation.txt
 ```
 
 ## Run the tests

@@ -20,8 +20,8 @@ pip install nltk                       # only dependency (Porter stemmer)
 python src/app.py                      # interactive search: 4 modes (incl. novelty)
 python scripts/dump_inverted_index.py  # Part A deliverable: inverted-index dump
 python scripts/dump_positional_index.py# Part C deliverable: positional-index dump
-python scripts/run_all_queries.py      # Part E battery + novelty into data/results.txt
-python scripts/evaluate.py             # Precision@k: VSM vs smart into data/evaluation.txt
+python scripts/run_all_queries.py      # Part E battery + novelty into outputs/results.txt
+python scripts/evaluate.py             # Precision@k: VSM vs smart into outputs/evaluation.txt
 
 python tests/test_vsm.py               # ranking tests (incl. lecture 0.8 check)
 python tests/test_positional.py        # phrase/proximity tests (298 assertions)
@@ -110,7 +110,7 @@ matching positions (modes 2 and 3). See the screenshots in section 9.
 
 ## 7. Part E: Testing and the positional versus VSM comparison
 
-Full logs are in [`../data/results.txt`](../data/results.txt). Coverage: 10
+Full logs are in [`../outputs/results.txt`](../outputs/results.txt). Coverage: 10
 free-text queries, 5 exact phrase queries, 3 proximity queries with different `k`,
 and out-of-vocabulary queries (`cashmere sweater` returns 0, phrase
 `leather jacket` returns 0, and `silk saree` returns sarees since `silk` is
@@ -158,7 +158,7 @@ net(q,d) = cosine_lnc_ltc(q,d)            (relevance:   the VSM cosine)
          + 0.30 * (1 / smallest_window)   (proximity:   the positional index)
 ```
 
-Why it is a real improvement (numbers from `data/results.txt`, section F):
+Why it is a real improvement (numbers from `outputs/results.txt`, section F):
 
 | Query | Plain VSM top 5 | Smart search top 5 |
 |---|---|---|
@@ -171,7 +171,7 @@ It is the one feature that uses both halves of the project at once. It is verifi
 by `tests/test_smart_search.py` (21 structural assertions) and demonstrated live
 in CLI mode 4.
 
-Evaluation (`scripts/evaluate.py` into `data/evaluation.txt`). To quantify the
+Evaluation (`scripts/evaluate.py` into `outputs/evaluation.txt`). To quantify the
 gain we measure Precision@k (the intro lecture's Precision metric) over 10
 category-typed queries, judging a result relevant when its product category
 matches the query's garment type (a reproducible proxy, with no hand labelling):
@@ -210,10 +210,10 @@ and the test runs:
 ## 10. Deliverables checklist
 
 - [x] Source code with comments: `src/`, `scripts/`, `tests/`
-- [x] Inverted-index output: `data/inverted_index.txt` (via `scripts/dump_inverted_index.py`)
-- [x] Positional-index output: `data/positional_index.txt`
-- [x] Query results and comparison: `data/results.txt` (includes the novelty section F)
+- [x] Inverted-index output: `outputs/inverted_index.txt` (via `scripts/dump_inverted_index.py`)
+- [x] Positional-index output: `outputs/positional_index.txt`
+- [x] Query results and comparison: `outputs/results.txt` (includes the novelty section F)
 - [x] Novelty: proximity-boosted smart search (`src/smart_search.py`, CLI mode 4, section 8)
-- [x] Novelty evaluation: Precision@k, `data/evaluation.txt` (via `scripts/evaluate.py`)
+- [x] Novelty evaluation: Precision@k, `outputs/evaluation.txt` (via `scripts/evaluate.py`)
 - [x] Screenshots of the application: `SCREENSHOTS.pdf` (see section 9)
 - [ ] ZIP of all files

@@ -9,7 +9,7 @@ representation required by Part C:
 
 Run from the repo root:
     python scripts/dump_positional_index.py
--> writes data/positional_index.txt
+-> writes outputs/positional_index.txt
 """
 
 import sys
@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.join(_ROOT, "src"))
 from preprocessing import load_corpus              # noqa: E402
 from positional_index import build_positional_index  # noqa: E402
 
-OUT_PATH = os.path.join(_ROOT, "data", "positional_index.txt")
+OUT_PATH = os.path.join(_ROOT, "outputs", "positional_index.txt")
 
 
 def dump(pindex, path):
