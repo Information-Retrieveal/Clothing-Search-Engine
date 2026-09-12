@@ -22,6 +22,7 @@ python src/app.py                      # interactive search: 4 modes (incl. nove
 python scripts/dump_inverted_index.py  # Part A deliverable: inverted-index dump
 python scripts/dump_positional_index.py# Part C deliverable: positional-index dump
 python scripts/run_all_queries.py      # Part E battery + novelty -> data/results.txt
+python scripts/evaluate.py             # Precision@k: VSM vs Smart -> data/evaluation.txt
 
 python tests/test_vsm.py               # Person A tests (incl. lecture 0.8 check)
 python tests/test_positional.py        # Person B tests (298 assertions)
@@ -174,6 +175,23 @@ plain VSM cannot. It is the one feature that uses **both** halves of the project
 at once. Verified by `tests/test_smart_search.py` (21 structural assertions) and
 demonstrated live in CLI mode 4.
 
+**Evaluation (`scripts/evaluate.py` → `data/evaluation.txt`).** To *quantify* the
+gain we measure **Precision@k** (the intro lecture's Precision metric) over 10
+category-typed queries, judging a result relevant iff its product **category**
+matches the query's garment type (a reproducible proxy, no hand-labelling):
+
+| Metric | Plain VSM | Smart Search |
+|---|---|---|
+| Mean **P@5** | 0.92 | **1.00** (+0.08) |
+| Mean P@10 | 0.90 | 0.90 |
+
+Smart Search **never scores lower** than VSM and clearly improves *early*
+precision — most dramatically on `cotton shirt`, where VSM's P@5 is **0.20**
+(only 1 of its top-5 is an actual shirt; the rest are T-shirts) versus **1.00**
+for Smart Search (all 5 real "Cotton Shirt" products). P@10 is unchanged because
+both eventually retrieve the same set — the improvement is precisely at the top
+of the ranking, where users look.
+
 ## 9. Screenshots
 
 Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DOC.pdf)**
@@ -194,5 +212,6 @@ Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DO
 - [x] Positional-index output — `data/positional_index.txt`
 - [x] Query results / comparison — `data/results.txt` (incl. novelty §F)
 - [x] Novelty — proximity-boosted Smart Search (`src/smart_search.py`, CLI mode 4, §8)
+- [x] Novelty evaluation — Precision@k, `data/evaluation.txt` (via `scripts/evaluate.py`)
 - [x] Screenshots of the application — `IR DOC.pdf` (see §9)
 - [ ] ZIP of all files

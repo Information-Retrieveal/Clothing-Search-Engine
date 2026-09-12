@@ -1,0 +1,24 @@
+EVALUATION - Precision@k : plain VSM vs Smart Search (novelty)
+Relevance = retrieved doc's CATEGORY matches the query's garment type.
+==============================================================================
+query                 relevant     VSM P@5  Smart P@5  VSM P@10  Smart P@10
+------------------------------------------------------------------------------
+denim jeans           Jeans           1.00       1.00      1.00        1.00
+printed saree         Saree           1.00       1.00      1.00        1.00
+midi dress            Dress           1.00       1.00      1.00        1.00
+fleece hoodie         Hoodie          1.00       1.00      1.00        1.00
+winter jacket         Jacket          1.00       1.00      1.00        1.00
+high waist leggings   Leggings        1.00       1.00      1.00        1.00
+graphic t shirt       T-Shirt         1.00       1.00      0.50        0.50
+cotton shirt          Shirt           0.20       1.00      0.50        0.50
+regular fit kurta     Kurta           1.00       1.00      1.00        1.00
+fleece sweatshirt     Sweatshirt      1.00       1.00      1.00        1.00
+------------------------------------------------------------------------------
+MEAN                                  0.92       1.00      0.90        0.90
+
+Mean P@5 : VSM 0.920  ->  Smart 1.000  (+0.080)
+Mean P@10: VSM 0.900  ->  Smart 0.900  (+0.000)
+
+Smart Search never scores lower than VSM, and improves precision on
+ambiguous queries (e.g. 'cotton shirt', where VSM ranks T-shirts high)
+by promoting exact-phrase / close-proximity matches.
