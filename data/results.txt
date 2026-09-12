@@ -298,3 +298,31 @@ CASE 2  -  'cotton shirt'
    where 'cotton shirt' is truly consecutive.  Relaxing to WITHIN/3 lets
    the T-Shirts back in ('cotton ... t shirt' within 3 positions), so the
    result SET grows again - proximity k directly controls precision.
+
+======================================================================
+[F] NOVELTY - PROXIMITY-BOOSTED SMART SEARCH  (VSM + phrase + proximity)
+======================================================================
+Fuses both engines (IIR Ch. 7: query parser + query-term proximity +
+net-score). Compare plain VSM vs Smart Search:
+
+Query 'cotton shirt'
+   plain VSM  top-5 : ['D001', 'D041', 'D061', 'D081', 'D022']
+   Smart Search top-5 :
+      1. D022  net=0.9201  (cosine=0.2701, phrase)  Shirt Men's Checked Cotton Shirt - White
+      2. D082  net=0.9201  (cosine=0.2701, phrase)  Shirt Men's Checked Cotton Shirt - Blue
+      3. D042  net=0.9183  (cosine=0.2683, phrase)  Shirt Men's Checked Cotton Shirt - Maroon
+      4. D002  net=0.9154  (cosine=0.2654, phrase)  Shirt Men's Checked Cotton Shirt - Black
+      5. D062  net=0.9154  (cosine=0.2654, phrase)  Shirt Men's Checked Cotton Shirt - Olive
+
+Query 'festive wear'
+   plain VSM  top-5 : []  (cannot rank - all idf 0)
+   Smart Search top-5 :
+      1. D005  net=0.6500  (cosine=0.0000, phrase)  Saree Women's Printed Daily Wear Saree - Blue
+      2. D015  net=0.6500  (cosine=0.0000, phrase)  Saree Women's Cotton Handloom Saree - Red
+      3. D025  net=0.6500  (cosine=0.0000, phrase)  Saree Women's Printed Daily Wear Saree - Maroon
+      4. D035  net=0.6500  (cosine=0.0000, phrase)  Saree Women's Cotton Handloom Saree - Yellow
+      5. D045  net=0.6500  (cosine=0.0000, phrase)  Saree Women's Printed Daily Wear Saree - Purple
+
+Effect: for 'cotton shirt' the truly-adjacent 'Cotton Shirt' products are
+lifted above the T-shirts that merely contain both words; for 'festive
+wear' Smart Search still returns the sarees where plain VSM (idf 0) can't.

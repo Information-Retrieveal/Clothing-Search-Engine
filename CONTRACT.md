@@ -52,3 +52,10 @@ proximity_search(term1, k, term2, pindex)  -> dict: docid -> [(pos1, pos2), ...]
 
 `src/app.py` (Part D CLI, wires VSM + positional), `scripts/run_all_queries.py`
 (Part E battery), `report/REPORT.md`.
+
+`src/smart_search.py` (NOVELTY — proximity-boosted ranking, fuses VSM + positional)
+```python
+smart_search(query, index, pindex, docs, top_k=10)
+    -> list[{docid, score, cosine, phrase, window}]   # net = cosine + 0.5*phrase + 0.3/window
+smallest_window(distinct_terms, positions_by_term) -> int | None
+```

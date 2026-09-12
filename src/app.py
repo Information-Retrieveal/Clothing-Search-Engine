@@ -29,6 +29,7 @@ from inverted_index import build_inverted_index           # noqa: E402
 from vsm import rank                                       # noqa: E402
 from positional_index import build_positional_index       # noqa: E402
 from phrase_search import phrase_search, proximity_search  # noqa: E402
+from smart_search import smart_search                       # noqa: E402
 
 _ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CORPUS_PATH = os.path.join(_ROOT, "corpus_100.txt")
@@ -97,6 +98,20 @@ def do_proximity(raw, pindex, docs):
         print(f"    {docid}  pairs={results[docid]}  {_label(docs, docid)}")
 
 
+def do_smart_search(query, index, pindex, docs):
+    print(f"\n  query terms after preprocessing: {preprocess_query(query)}")
+    results = smart_search(query, index, pindex, docs, top_k=10)
+    if not results:
+        print("  No results.")
+        return
+    print("  Smart-ranked results  (net = cosine + phrase-bonus + proximity):\n")
+    print(f"    {'rank':<5}{'docID':<7}{'net':<8}{'cosine':<8}{'signal':<9}category / title")
+    print(f"    {'-'*4:<5}{'-'*5:<7}{'-'*6:<8}{'-'*6:<8}{'-'*7:<9}{'-'*30}")
+    for i, r in enumerate(results, 1):
+        signal = "phrase" if r["phrase"] else (f"win={r['window']}" if r["window"] else "-")
+        print(f"    {i:<5}{r['docid']:<7}{r['score']:<8.4f}{r['cosine']:<8.4f}{signal:<9}{_label(docs, r['docid'])}")
+
+
 MENU = """
 ============================================================
   Clothing Search Engine  (100 products)
@@ -104,6 +119,7 @@ MENU = """
   1) Free-text ranked search   (VSM, lnc.ltc cosine)
   2) Exact phrase search       (positional index)
   3) Proximity search WITHIN/k (positional index)
+  4) Smart search   [NOVELTY]  (VSM + phrase + proximity)
   0) Quit
 ------------------------------------------------------------"""
 
@@ -118,7 +134,7 @@ def main():
     while True:
         print(MENU)
         try:
-            choice = input("  Select mode (0-3): ").strip()
+            choice = input("  Select mode (0-4): ").strip()
         except EOFError:
             break
 
@@ -145,8 +161,15 @@ def main():
                 break
             if q:
                 do_proximity(q, pos_index, docs)
+        elif choice == "4":
+            try:
+                q = input("  Enter query for smart search: ").strip()
+            except EOFError:
+                break
+            if q:
+                do_smart_search(q, inv_index, pos_index, docs)
         else:
-            print("  Invalid choice — pick 0, 1, 2 or 3.")
+            print("  Invalid choice — pick 0, 1, 2, 3 or 4.")
 
     print("\nGoodbye.")
 

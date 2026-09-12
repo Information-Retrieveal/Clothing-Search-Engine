@@ -18,13 +18,14 @@ ordered-proximity search.
 ```bash
 pip install nltk                       # only dependency (Porter stemmer)
 
-python src/app.py                      # Part D interactive search (both modes)
+python src/app.py                      # interactive search: 4 modes (incl. novelty)
 python scripts/dump_inverted_index.py  # Part A deliverable: inverted-index dump
 python scripts/dump_positional_index.py# Part C deliverable: positional-index dump
-python scripts/run_all_queries.py      # Part E battery -> data/results.txt
+python scripts/run_all_queries.py      # Part E battery + novelty -> data/results.txt
 
 python tests/test_vsm.py               # Person A tests (incl. lecture 0.8 check)
 python tests/test_positional.py        # Person B tests (298 assertions)
+python tests/test_smart_search.py      # Novelty tests (21 assertions)
 ```
 
 ## 2. Repository layout
@@ -36,7 +37,8 @@ python tests/test_positional.py        # Person B tests (298 assertions)
 | `src/vsm.py` | B — lnc.ltc cosine ranking | A |
 | `src/positional_index.py` | C — `{term:{df,postings{doc:[pos]}}}` | B |
 | `src/phrase_search.py` | C — exact phrase + ordered `WITHIN/k` | B |
-| `src/app.py` | D — CLI (free-text + phrase/proximity) | integration |
+| `src/smart_search.py` | **Novelty** — proximity-boosted ranking (VSM + positional) | integration |
+| `src/app.py` | D — CLI (free-text + phrase/proximity + smart search) | integration |
 | `scripts/dump_*_index.py`, `scripts/run_all_queries.py` | A/C/E deliverables | — |
 | `tests/test_vsm.py`, `tests/test_positional.py` | E | A / B |
 
@@ -105,8 +107,9 @@ The positional index stores, per term, `df` and a postings map
 ## 6. Part D — Application
 
 `src/app.py` offers a menu: (1) free-text ranked search (VSM), (2) exact phrase,
-(3) proximity `WITHIN/k`. Results show docID, category/title and cosine score
-(mode 1) or the matching positions (modes 2 & 3). See the screenshots in §8.
+(3) proximity `WITHIN/k`, and (4) smart search (the novelty, §8). Results show
+docID, category/title and cosine score (mode 1) or the matching positions
+(modes 2 & 3). See the screenshots in §9.
 
 ## 7. Part E — Testing and the positional-vs-VSM comparison
 
@@ -114,8 +117,9 @@ Full logs are in [`../data/results.txt`](../data/results.txt). Coverage: 10
 free-text queries, 5 exact phrase queries, 3 proximity queries with different
 `k`, and out-of-vocabulary queries (`cashmere sweater` → 0; phrase
 `leather jacket` → 0; `silk saree` → sarees, since `silk` is ignored). Automated
-tests: `test_vsm.py` (4 checks incl. the 0.8 example) and `test_positional.py`
-(298 structural assertions, no hard-coded doc IDs).
+tests: `test_vsm.py` (4 checks incl. the 0.8 example), `test_positional.py`
+(298 structural assertions, no hard-coded doc IDs) and `test_smart_search.py`
+(21 assertions for the novelty).
 
 ### Two cases where positional information changes the result
 
@@ -136,7 +140,41 @@ consecutive. Relaxing to **`cotton WITHIN/3 shirt`** lets the T-shirts back in
 precision/recall knob. This is the core lesson — VSM ranks on term presence,
 positional retrieval ranks on term *arrangement*.
 
-## 8. Screenshots
+## 8. Novelty — Proximity-boosted "Smart Search" (mode 4)
+
+The base system exposes VSM ranking and phrase/proximity as **separate** modes.
+Our novelty **fuses them into one smarter ranker** (`src/smart_search.py`,
+CLI mode 4), built entirely from ideas in the **IIR Ch. 7** lecture ("Scoring
+and results assembly") — no new index, no heavy machinery:
+
+- **Query parser** (IIR 7.2.3): try the query as an exact **phrase** first;
+  phrase matches are the most precise, so they are promoted.
+- **Query-term proximity** (IIR 7.2.2): prefer documents where the query terms
+  fall in a **small window** — we compute the *smallest window* containing all
+  query terms from the positional index (the lecture's *strained mercy* → window 4).
+- **Net score** (IIR 7.1.4 / 7.2.3): blend the signals linearly, exactly like
+  the lecture's `net-score(q,d) = cosine(q,d) + other signals`:
+
+```
+net(q,d) = cosine_lnc_ltc(q,d)          (relevance   — Person A's VSM)
+         + 0.50 · [exact phrase in d]    (arrangement — Person B's positions)
+         + 0.30 · 1 / smallest_window    (proximity   — Person B's positions)
+```
+
+**Why it's a real improvement** (numbers from `data/results.txt` §F):
+
+| Query | Plain VSM top-5 | Smart Search top-5 |
+|---|---|---|
+| `cotton shirt` | D001, D041, D061, D081, D022 — **4 T-shirts on top** (they merely contain both words) | D022, D082, D042, D002, D062 — the **5 "Cotton Shirt"** products, because the words are adjacent |
+| `festive wear` | **`[]` — cannot rank** (both terms idf 0) | the **10 sarees**, recovered via the phrase/proximity signal |
+
+So the novelty (a) lifts truly-adjacent products above accidental
+co-occurrences, and (b) still answers the degenerate `festive wear` query that
+plain VSM cannot. It is the one feature that uses **both** halves of the project
+at once. Verified by `tests/test_smart_search.py` (21 structural assertions) and
+demonstrated live in CLI mode 4.
+
+## 9. Screenshots
 
 Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DOC.pdf)**
 (captured from `python src/app.py` and the test runs):
@@ -149,11 +187,12 @@ Application screenshots and query evidence are in **[`../IR DOC.pdf`](../IR%20DO
 - **Page 3** — both test suites passing (`test_positional.py` 298 assertions,
   `test_vsm.py` incl. the 0.8 lecture check).
 
-## 9. Deliverables checklist
+## 10. Deliverables checklist
 
 - [x] Source code with comments — `src/`, `scripts/`, `tests/`
 - [x] Inverted-index output — `data/inverted_index.txt` (via `scripts/dump_inverted_index.py`)
 - [x] Positional-index output — `data/positional_index.txt`
-- [x] Query results / comparison — `data/results.txt`
-- [x] Screenshots of the application — `IR DOC.pdf` (see §8)
+- [x] Query results / comparison — `data/results.txt` (incl. novelty §F)
+- [x] Novelty — proximity-boosted Smart Search (`src/smart_search.py`, CLI mode 4, §8)
+- [x] Screenshots of the application — `IR DOC.pdf` (see §9)
 - [ ] ZIP of all files

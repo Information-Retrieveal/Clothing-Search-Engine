@@ -28,6 +28,7 @@ from inverted_index import build_inverted_index           # noqa: E402
 from vsm import rank                                       # noqa: E402
 from positional_index import build_positional_index       # noqa: E402
 from phrase_search import phrase_search, proximity_search  # noqa: E402
+from smart_search import smart_search                       # noqa: E402
 
 OUT_PATH = os.path.join(_ROOT, "data", "results.txt")
 
@@ -149,6 +150,27 @@ def main():
     w("   where 'cotton shirt' is truly consecutive.  Relaxing to WITHIN/3 lets")
     w("   the T-Shirts back in ('cotton ... t shirt' within 3 positions), so the")
     w("   result SET grows again - proximity k directly controls precision.")
+
+    # ---- Novelty: proximity-boosted Smart Search ------------------------------
+    w("")
+    hr()
+    w("[F] NOVELTY - PROXIMITY-BOOSTED SMART SEARCH  (VSM + phrase + proximity)")
+    hr()
+    w("Fuses both engines (IIR Ch. 7: query parser + query-term proximity +")
+    w("net-score). Compare plain VSM vs Smart Search:\n")
+    for q in ["cotton shirt", "festive wear"]:
+        vsm_ids = [d for d, _ in rank(q, index, docs, top_k=5)]
+        w(f"Query {q!r}")
+        w(f"   plain VSM  top-5 : {vsm_ids if vsm_ids else '[]  (cannot rank - all idf 0)'}")
+        w("   Smart Search top-5 :")
+        for i, r in enumerate(smart_search(q, index, pindex, docs, top_k=5), 1):
+            sig = "phrase" if r["phrase"] else (f"window={r['window']}" if r["window"] else "-")
+            w(f"      {i}. {r['docid']}  net={r['score']:.4f}  (cosine={r['cosine']:.4f}, {sig})"
+              f"  {docs[r['docid']]['category']} {docs[r['docid']]['title']}")
+        w("")
+    w("Effect: for 'cotton shirt' the truly-adjacent 'Cotton Shirt' products are")
+    w("lifted above the T-shirts that merely contain both words; for 'festive")
+    w("wear' Smart Search still returns the sarees where plain VSM (idf 0) can't.")
 
     # write + echo
     os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
